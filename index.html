@@ -4,129 +4,158 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Vital Signals Systems &mdash; Biomedical Sensing &amp; Health AI</title>
-<meta name="description" content="Vital Signals Systems builds multimodal biosignal sensors and AI software for clinical and consumer health applications. Based in Boca Raton, Florida." />
+<meta name="description" content="Vital Signals Systems is a biomedical technology company building sensors and AI software for every patient, with a focus on women's health and communities historically underrepresented in clinical research." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --ink: #14151a;
-    --ink-soft: #2a2c35;
+    --black: #000000;
+    --ink: #0a0a0a;
+    --ink-soft: #2a2a2a;
+    --navy: #0a2342;
+    --navy-deep: #061935;
+    --pink: #ff3d7f;
+    --pink-soft: #ffe5ee;
+    --pink-deep: #d11e60;
+    --coral: #ff7a59;
+    --coral-soft: #ffe9e1;
+    --olive: #5a6b3a;
+    --olive-soft: #f0f2e8;
+    --olive-deep: #3d4825;
+    --gold: #d4a017;
+    --gold-soft: #faf1d8;
     --paper: #ffffff;
-    --paper-2: #fafafa;
+    --paper-warm: #fafaf7;
+    --paper-cream: #f6f4ee;
     --rule: #ececec;
-    --rule-strong: #d8d8d8;
-    --pink: #e6336e;
-    --pink-soft: #fde7ee;
-    --pink-bright: #ff5c8f;
-    --teal: #0d6e6e;
-    --teal-soft: #e6f2f2;
-    --muted: #6b6f7a;
+    --rule-strong: #d4d4d4;
+    --muted: #6b7280;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--paper);
     color: var(--ink);
     font-size: 17px;
     line-height: 1.65;
-    font-feature-settings: "kern", "ss01", "cv11";
+    font-feature-settings: "kern", "ss01";
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 0 32px;
     position: relative;
   }
 
+  /* ============ NAV ============ */
   nav {
-    padding: 24px 0;
+    padding: 20px 0;
     border-bottom: 1px solid var(--rule);
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     position: sticky;
     top: 0;
-    z-index: 50;
+    z-index: 100;
   }
-  nav .container {
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: var(--black);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
   }
-  .brand {
+  .logo:hover .logo-mark { transform: rotate(-3deg) scale(1.04); }
+  .logo-mark svg { width: 30px; height: 30px; }
+  .logo-mark .pulse-dot {
+    animation: heartbeat 2.4s ease-in-out infinite;
+    transform-origin: center;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    18% { transform: scale(1.5); }
+    32% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    64% { transform: scale(1); }
+  }
+  .logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .logo-name {
     font-family: 'Fraunces', serif;
     font-weight: 500;
     font-size: 19px;
-    letter-spacing: -0.01em;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
   }
-  .brand-mark {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
+  .logo-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-top: 5px;
+    font-weight: 600;
   }
   nav ul {
     list-style: none;
     display: flex;
     gap: 36px;
-    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
+    align-items: center;
   }
-  nav ul a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    position: relative;
-    transition: color 0.2s;
-  }
+  nav ul a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
   nav ul a:hover { color: var(--pink); }
   .nav-cta {
-    background: var(--ink);
+    background: var(--black);
     color: white !important;
-    padding: 10px 18px;
+    padding: 10px 20px;
     border-radius: 999px;
     font-size: 13px !important;
-    transition: background 0.2s !important;
+    transition: all 0.2s !important;
   }
-  .nav-cta:hover { background: var(--pink) !important; }
+  .nav-cta:hover { background: var(--pink) !important; transform: translateY(-1px); }
 
-  .hero {
-    padding: 100px 0 90px;
-    position: relative;
-    overflow: hidden;
-  }
+  /* ============ HERO ============ */
+  .hero { padding: 100px 0 100px; position: relative; overflow: hidden; }
   .hero-bg {
     position: absolute;
-    top: 0; right: -100px;
-    width: 60%;
+    top: 0;
+    right: -80px;
+    width: 65%;
     height: 100%;
     pointer-events: none;
-    opacity: 0.6;
+    z-index: 0;
   }
   .hero-bg svg { width: 100%; height: 100%; }
-  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 0; position: relative; z-index: 2; }
+  .hero-grid { position: relative; z-index: 2; }
   .eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.1em;
+    font-size: 11px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--pink);
+    color: var(--pink-deep);
     background: var(--pink-soft);
-    padding: 8px 16px;
+    padding: 9px 18px;
     border-radius: 999px;
-    margin-bottom: 32px;
-    font-weight: 500;
+    margin-bottom: 36px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 61, 127, 0.15);
   }
   .eyebrow-dot {
     width: 6px;
@@ -136,22 +165,26 @@
     animation: pulse 2s ease-in-out infinite;
   }
   @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.4); }
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,61,127,0.5); }
+    50% { transform: scale(1.3); box-shadow: 0 0 0 8px rgba(255,61,127,0); }
   }
   h1.display {
     font-family: 'Fraunces', serif;
     font-weight: 400;
     font-size: clamp(44px, 6.5vw, 88px);
     line-height: 1.02;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     max-width: 18ch;
-    margin-bottom: 32px;
-    color: var(--ink);
+    margin-bottom: 36px;
+    color: var(--black);
   }
   h1.display em {
     font-style: italic;
     font-weight: 400;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--coral) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: var(--pink);
   }
   .lede {
@@ -159,256 +192,349 @@
     line-height: 1.6;
     max-width: 62ch;
     color: var(--ink-soft);
-    margin-bottom: 44px;
+    margin-bottom: 48px;
   }
-  .hero-ctas {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 72px;
-  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 80px; }
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 14px 24px;
+    padding: 15px 28px;
     border-radius: 999px;
     font-size: 15px;
     font-weight: 500;
     text-decoration: none;
-    transition: all 0.2s;
+    transition: all 0.25s;
     cursor: pointer;
+    border: none;
   }
-  .btn-primary { background: var(--ink); color: white; }
-  .btn-primary:hover { background: var(--pink); transform: translateY(-1px); }
+  .btn-primary {
+    background: var(--black);
+    color: white;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  }
+  .btn-primary:hover {
+    background: var(--pink);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 61, 127, 0.35);
+  }
   .btn-secondary {
     background: transparent;
     color: var(--ink);
-    border: 1px solid var(--rule-strong);
+    border: 1.5px solid var(--rule-strong);
   }
-  .btn-secondary:hover { border-color: var(--ink); background: var(--paper-2); }
-  .btn .arrow { transition: transform 0.2s; }
-  .btn:hover .arrow { transform: translateX(3px); }
-
+  .btn-secondary:hover {
+    border-color: var(--ink);
+    background: var(--paper-warm);
+  }
+  .btn .arrow { transition: transform 0.25s; }
+  .btn:hover .arrow { transform: translateX(4px); }
   .hero-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 0;
     padding-top: 40px;
     border-top: 1px solid var(--rule);
   }
+  .stat { padding-right: 24px; border-right: 1px solid var(--rule); }
+  .stat:last-child { border-right: none; }
   .stat-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: 10px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-weight: 500;
   }
   .stat-value {
     font-family: 'Fraunces', serif;
     font-size: 22px;
     font-weight: 500;
     color: var(--ink);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
   }
+  .stat-value .accent { color: var(--pink); }
 
-  section { padding: 110px 0; position: relative; }
-  section.alt { background: var(--paper-2); }
-  .section-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--pink);
-    margin-bottom: 20px;
-    font-weight: 500;
+  /* ============ SECTIONS ============ */
+  section { padding: 130px 0; position: relative; }
+  section.warm { background: var(--paper-cream); }
+  section.dark {
+    background: var(--navy-deep);
+    color: white;
   }
+  section.dark::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .section-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--pink);
+  }
+  section.dark .section-eyebrow { color: var(--gold); }
+  section.dark .section-eyebrow::before { background: var(--gold); }
   .section-title {
     font-family: 'Fraunces', serif;
     font-weight: 400;
-    font-size: clamp(34px, 4.5vw, 56px);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
+    font-size: clamp(34px, 4.5vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
     max-width: 22ch;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
+    color: var(--black);
   }
+  section.dark .section-title { color: white; }
   .section-title em { font-style: italic; color: var(--pink); }
+  section.dark .section-title em { color: var(--gold); }
   .section-intro {
     font-size: 19px;
     line-height: 1.6;
     color: var(--ink-soft);
-    max-width: 60ch;
-    margin-bottom: 64px;
+    max-width: 62ch;
+    margin-bottom: 72px;
   }
+  section.dark .section-intro { color: rgba(255,255,255,0.75); }
 
-  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  /* ============ MISSION ============ */
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 100px;
+    align-items: start;
+  }
   .mission-body p {
     font-size: 18px;
     line-height: 1.7;
     color: var(--ink-soft);
-    margin-bottom: 22px;
+    margin-bottom: 24px;
   }
-  .mission-body p strong { color: var(--ink); font-weight: 600; }
+  .mission-body p strong { color: var(--black); font-weight: 600; }
   .mission-quote {
-    background: var(--paper);
-    border-left: 3px solid var(--pink);
-    padding: 32px 32px 32px 36px;
+    background: white;
+    border-radius: 16px;
+    padding: 36px 36px 36px 40px;
     font-family: 'Fraunces', serif;
-    font-size: 22px;
+    font-size: 23px;
     line-height: 1.4;
-    color: var(--ink);
+    color: var(--black);
     letter-spacing: -0.01em;
-    margin-top: 8px;
+    margin-top: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06);
+  }
+  .mission-quote::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--pink) 0%, var(--coral) 100%);
   }
   .mission-quote em { color: var(--pink); font-style: italic; }
 
-  .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 24px; }
-  .pillar {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 20px;
-    padding: 40px;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .pillar:hover {
-    border-color: var(--pink);
-    transform: translateY(-4px);
-    box-shadow: 0 24px 60px -20px rgba(230,51,110,0.18);
-  }
-  .pillar-tag {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--pink);
-    background: var(--pink-soft);
-    padding: 5px 12px;
-    border-radius: 999px;
-    margin-bottom: 22px;
-    font-weight: 500;
-  }
-  .pillar-tag.teal { color: var(--teal); background: var(--teal-soft); }
-  .pillar h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-    margin-bottom: 16px;
-  }
-  .pillar p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin-bottom: 20px;
-  }
-  .pillar ul { list-style: none; padding: 0; }
-  .pillar ul li {
-    font-size: 15px;
-    color: var(--ink-soft);
-    padding: 8px 0 8px 24px;
-    position: relative;
-    border-top: 1px solid var(--rule);
-  }
-  .pillar ul li:first-child { border-top: 1px solid var(--rule-strong); }
-  .pillar ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 16px;
-    width: 8px;
-    height: 8px;
-    background: var(--pink);
-    border-radius: 50%;
-  }
-  .pillar ul li.teal::before { background: var(--teal); }
-
+  /* ============ FOCUS ============ */
   .focus-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--rule);
     border: 1px solid var(--rule);
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
-    margin-top: 24px;
   }
-  .focus { background: var(--paper); padding: 44px 32px; transition: background 0.2s; }
-  .focus:hover { background: var(--paper-2); }
+  .focus {
+    background: var(--paper-warm);
+    padding: 48px 36px;
+    transition: all 0.3s;
+  }
+  .focus:hover { background: white; }
   .focus-num {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.15em;
+    font-size: 11px;
+    letter-spacing: 0.16em;
     color: var(--pink);
-    margin-bottom: 24px;
-    font-weight: 500;
+    margin-bottom: 28px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 5px 10px;
+    background: var(--pink-soft);
+    border-radius: 6px;
   }
   .focus h4 {
     font-family: 'Fraunces', serif;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+    margin-bottom: 16px;
+    color: var(--black);
   }
   .focus p {
     font-size: 15px;
-    line-height: 1.6;
-    color: var(--muted);
+    line-height: 1.65;
+    color: var(--ink-soft);
   }
 
-  .team { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 24px; }
+  /* ============ TEAM ============ */
+  .team { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
   .person {
-    background: var(--paper);
+    background: white;
     border: 1px solid var(--rule);
-    border-radius: 20px;
-    padding: 40px;
-    transition: border-color 0.2s;
+    border-radius: 24px;
+    padding: 44px;
+    transition: all 0.3s;
+    position: relative;
   }
-  .person:hover { border-color: var(--pink); }
-  .person-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--pink), var(--pink-bright));
+  .person:hover {
+    border-color: var(--pink);
+    transform: translateY(-3px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 16px 40px -12px rgba(0,0,0,0.08);
+  }
+  .person-photo {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--coral) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-family: 'Fraunces', serif;
-    font-size: 22px;
+    font-size: 30px;
     font-weight: 500;
-    margin-bottom: 24px;
+    box-shadow: 0 8px 20px -8px rgba(255, 61, 127, 0.4);
   }
-  .person-avatar.teal { background: linear-gradient(135deg, var(--teal), #2a9d9d); }
+  .person.alt .person-photo {
+    background: linear-gradient(135deg, var(--black) 0%, var(--navy) 100%);
+    box-shadow: 0 8px 20px -8px rgba(0,0,0,0.4);
+  }
+  .person-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    position: absolute; top: 0; left: 0;
+  }
   .person-name {
     font-family: 'Fraunces', serif;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 500;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
     margin-bottom: 6px;
+    color: var(--black);
   }
   .person-title {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--pink);
-    margin-bottom: 22px;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .person.alt .person-title { color: var(--coral); }
+  .person-bio { font-size: 15px; line-height: 1.65; color: var(--ink-soft); }
+  .person-bio + .person-bio { margin-top: 14px; }
+  .person-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .person-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--paper-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .person-link:hover {
+    background: var(--black);
+    color: white;
+    transform: translateY(-2px);
+  }
+  .person-link svg { width: 16px; height: 16px; }
+
+  /* ============ PUBLICATIONS ============ */
+  .pubs-group { margin-bottom: 52px; }
+  .pubs-group:last-child { margin-bottom: 0; }
+  .pubs-group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(212,160,23,0.25);
+  }
+  .pubs-list { display: flex; flex-direction: column; }
+  .pub {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 28px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    align-items: baseline;
+    transition: all 0.3s;
+  }
+  .pub:hover { padding-left: 8px; border-bottom-color: rgba(212,160,23,0.3); }
+  .pub-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
     font-weight: 500;
   }
-  .person.teal .person-title { color: var(--teal); }
-  .person-bio { font-size: 15px; line-height: 1.65; color: var(--ink-soft); }
-  .person-bio + .person-bio { margin-top: 12px; }
+  .pub-content { max-width: 78ch; }
+  .pub-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: white;
+    margin-bottom: 6px;
+    letter-spacing: -0.005em;
+  }
+  .pub-meta {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+  }
+  .pub-venue {
+    color: rgba(255,255,255,0.78);
+    font-style: normal;
+    font-weight: 500;
+  }
 
+  /* ============ CONTACT ============ */
   .contact-card {
-    background: linear-gradient(135deg, var(--ink) 0%, #1f1f2e 100%);
-    border-radius: 24px;
-    padding: 72px 64px;
+    background: linear-gradient(135deg, var(--black) 0%, var(--navy-deep) 100%);
+    border-radius: 32px;
+    padding: 88px 72px;
     color: white;
     position: relative;
     overflow: hidden;
@@ -416,38 +542,58 @@
   .contact-card::before {
     content: '';
     position: absolute;
-    top: -100px; right: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(230,51,110,0.3), transparent 70%);
+    top: -150px; right: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,61,127,0.28), transparent 70%);
     pointer-events: none;
   }
-  .contact-card .section-eyebrow { color: var(--pink-bright); }
+  .contact-card::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(212,160,23,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .contact-card .section-eyebrow { color: var(--gold); position: relative; }
+  .contact-card .section-eyebrow::before { background: var(--gold); }
   .contact-card h2 {
     font-family: 'Fraunces', serif;
     font-weight: 400;
-    font-size: clamp(32px, 4vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
     margin-bottom: 32px;
     max-width: 20ch;
     color: white;
     position: relative;
   }
-  .contact-card h2 em { font-style: italic; color: var(--pink-bright); }
+  .contact-card h2 em { font-style: italic; color: var(--pink); }
+  .contact-card .lede-dark {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+    max-width: 58ch;
+    margin-bottom: 0;
+    position: relative;
+  }
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
-    margin-top: 48px;
+    margin-top: 56px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.15);
     position: relative;
   }
   .contact-cell .cl {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-size: 10px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.5);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    font-weight: 500;
   }
   .contact-cell .cv {
     font-size: 18px;
@@ -458,16 +604,19 @@
   .contact-cell a {
     color: white;
     text-decoration: none;
-    border-bottom: 1px solid var(--pink-bright);
+    border-bottom: 1.5px solid var(--pink);
+    padding-bottom: 2px;
     transition: color 0.2s;
   }
-  .contact-cell a:hover { color: var(--pink-bright); }
+  .contact-cell a:hover { color: var(--pink); }
 
+  /* ============ FOOTER ============ */
   footer {
     border-top: 1px solid var(--rule);
-    padding: 32px 0;
+    padding: 40px 0;
     font-size: 13px;
     color: var(--muted);
+    background: white;
   }
   footer .container {
     display: flex;
@@ -479,13 +628,14 @@
   footer .brand-mini {
     font-family: 'Fraunces', serif;
     font-weight: 500;
-    color: var(--ink);
+    color: var(--black);
   }
 
+  /* ============ REVEALS ============ */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(24px);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .reveal.in { opacity: 1; transform: translateY(0); }
   .delay-1 { transition-delay: 0.1s; }
@@ -493,28 +643,34 @@
   .delay-3 { transition-delay: 0.3s; }
   .delay-4 { transition-delay: 0.4s; }
 
-  @media (max-width: 900px) {
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 920px) {
     .container { padding: 0 22px; }
-    nav { padding: 18px 0; }
-    nav ul { gap: 20px; font-size: 13px; }
+    nav { padding: 16px 0; }
+    nav ul { gap: 18px; font-size: 13px; }
+    .logo-mark { width: 34px; height: 34px; }
+    .logo-mark svg { width: 26px; height: 26px; }
+    .logo-name { font-size: 17px; }
     .nav-cta { padding: 8px 14px; }
-    .hero { padding: 64px 0 70px; }
+    .hero { padding: 60px 0 70px; }
     .hero-bg { display: none; }
     h1.display { font-size: 42px; }
-    .hero-stats { grid-template-columns: 1fr 1fr; gap: 20px; }
-    section { padding: 72px 0; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .stat { border-right: none; padding-right: 0; }
+    section { padding: 80px 0; }
     .section-title { font-size: 32px; }
     .mission-grid { grid-template-columns: 1fr; gap: 32px; }
-    .pillars { grid-template-columns: 1fr; }
     .focus-grid { grid-template-columns: 1fr; }
     .team { grid-template-columns: 1fr; }
-    .contact-card { padding: 48px 28px; }
+    .pub { grid-template-columns: 50px 1fr; gap: 14px; }
+    .contact-card { padding: 52px 28px; border-radius: 20px; }
     .contact-grid { grid-template-columns: 1fr; gap: 28px; }
   }
-
-  @media (max-width: 560px) {
+  @media (max-width: 600px) {
     nav ul li:not(:last-child) { display: none; }
-    .hero-stats { grid-template-columns: 1fr; }
+    .logo-tag { display: none; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .person { padding: 32px 24px; }
   }
 </style>
 </head>
@@ -522,49 +678,61 @@
 
 <nav>
   <div class="container">
-    <div class="brand">
-      <svg class="brand-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 4 20 L 10 20 L 13 10 L 18 30 L 22 14 L 26 24 L 30 20 L 36 20"
-              fill="none" stroke="#e6336e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Vital Signals Systems
-    </div>
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 4 18 L 9 18 L 11 17 L 13 18 L 15 7 L 17 25 L 19 14 L 21 18 L 28 18"
+                fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle class="pulse-dot" cx="15" cy="7" r="2" fill="#ff3d7f"/>
+        </svg>
+      </span>
+      <span class="logo-text">
+        <span class="logo-name">Vital Signals Systems</span>
+        <span class="logo-tag">Sensors &middot; AI &middot; Equity</span>
+      </span>
+    </a>
     <ul>
       <li><a href="#mission">Mission</a></li>
-      <li><a href="#build">What We Build</a></li>
       <li><a href="#focus">Focus</a></li>
       <li><a href="#team">Team</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="hero-bg" aria-hidden="true">
-    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <linearGradient id="wave1" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#fde7ee" stop-opacity="0"/>
-          <stop offset="50%" stop-color="#e6336e" stop-opacity="0.4"/>
-          <stop offset="100%" stop-color="#fde7ee" stop-opacity="0"/>
+        <linearGradient id="wp" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ffe5ee" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#ff3d7f" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#ffe5ee" stop-opacity="0"/>
         </linearGradient>
-        <linearGradient id="wave2" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#e6f2f2" stop-opacity="0"/>
-          <stop offset="50%" stop-color="#0d6e6e" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="#e6f2f2" stop-opacity="0"/>
+        <linearGradient id="wo" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#f0f2e8" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#5a6b3a" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#f0f2e8" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#faf1d8" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#d4a017" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#faf1d8" stop-opacity="0"/>
         </linearGradient>
       </defs>
-      <path d="M 0 300 Q 100 250 200 300 T 400 300 T 600 300 T 800 300"
-            fill="none" stroke="url(#wave1)" stroke-width="2"/>
-      <path d="M 0 320 L 50 320 L 75 280 L 100 360 L 130 240 L 160 380 L 200 320 L 800 320"
-            fill="none" stroke="#e6336e" stroke-width="1.5" stroke-opacity="0.5"/>
-      <path d="M 0 380 L 80 380 L 110 350 L 140 410 L 180 320 L 220 440 L 260 380 L 800 380"
-            fill="none" stroke="#0d6e6e" stroke-width="1.5" stroke-opacity="0.4"/>
-      <path d="M 0 440 Q 120 400 240 440 T 480 440 T 720 440 T 800 440"
-            fill="none" stroke="url(#wave2)" stroke-width="2"/>
-      <circle cx="400" cy="300" r="3" fill="#e6336e"/>
-      <circle cx="200" cy="380" r="2" fill="#0d6e6e"/>
-      <circle cx="600" cy="320" r="2" fill="#e6336e"/>
+      <path d="M 0 250 Q 150 200 300 250 T 600 250 T 900 250" fill="none" stroke="url(#wp)" stroke-width="2.5"/>
+      <path d="M 0 320 L 80 320 L 110 280 L 140 380 L 180 220 L 220 420 L 260 320 L 900 320"
+            fill="none" stroke="#ff3d7f" stroke-width="2" stroke-opacity="0.6" stroke-linejoin="round"/>
+      <path d="M 0 430 L 60 430 L 85 400 L 110 460 L 140 380 L 170 480 L 210 420 L 900 420"
+            fill="none" stroke="#ff7a59" stroke-width="1.8" stroke-opacity="0.45" stroke-linejoin="round"/>
+      <path d="M 0 510 Q 180 470 360 510 T 720 510 T 900 510" fill="none" stroke="url(#wo)" stroke-width="2"/>
+      <path d="M 0 600 L 200 600 L 220 580 L 240 620 L 260 600 L 460 600 L 480 580 L 500 620 L 520 600 L 720 600 L 740 580 L 760 620 L 780 600 L 900 600"
+            fill="none" stroke="url(#wg)" stroke-width="1.5"/>
+      <circle cx="450" cy="320" r="4" fill="#ff3d7f"/>
+      <circle cx="300" cy="250" r="3" fill="#ff7a59"/>
+      <circle cx="600" cy="510" r="3" fill="#5a6b3a"/>
+      <circle cx="220" cy="420" r="2.5" fill="#ff3d7f" opacity="0.6"/>
     </svg>
   </div>
   <div class="container">
@@ -574,32 +742,29 @@
         Biomedical sensing &amp; health AI
       </div>
       <h1 class="display reveal delay-1">
-        Hardware and AI that <em>listen</em> to the body's signals.
+        Biomedical sensors and AI for the health system's <em>blind spots.</em>
       </h1>
       <p class="lede reveal delay-2">
-        Vital Signals Systems designs multimodal biosignal sensors and AI software for clinical
-        and consumer health. We build the devices that capture human physiology and the
-        intelligence that turns those signals into useful, equitable insight &mdash;
-        with a focus on women's health and underserved populations.
+        Vital Signals Systems is a biomedical technology company building sensors and AI software for every patient, with a focus on women's health and the communities historically underrepresented in clinical research.
       </p>
       <div class="hero-ctas reveal delay-3">
-        <a href="#build" class="btn btn-primary">Explore what we build <span class="arrow">&rarr;</span></a>
+        <a href="#mission" class="btn btn-primary">Read our mission <span class="arrow">&rarr;</span></a>
         <a href="#contact" class="btn btn-secondary">Partner with us</a>
       </div>
       <div class="hero-stats reveal delay-4">
-        <div>
+        <div class="stat">
           <div class="stat-label">Practice</div>
-          <div class="stat-value">Sensors + AI</div>
+          <div class="stat-value">Sensors <span class="accent">+</span> AI</div>
         </div>
-        <div>
+        <div class="stat">
           <div class="stat-label">Sectors</div>
           <div class="stat-value">Clinical &amp; Consumer</div>
         </div>
-        <div>
+        <div class="stat">
           <div class="stat-label">Headquarters</div>
           <div class="stat-value">Boca Raton, FL</div>
         </div>
-        <div>
+        <div class="stat">
           <div class="stat-label">Established</div>
           <div class="stat-value">2026</div>
         </div>
@@ -608,203 +773,295 @@
   </div>
 </header>
 
-<section id="mission" class="alt">
+<section id="mission" class="warm">
   <div class="container">
     <div class="mission-grid">
       <div>
-        <div class="section-eyebrow reveal">01 / Mission</div>
+        <div class="section-eyebrow reveal">01 Mission</div>
         <h2 class="section-title reveal delay-1">
-          Building the next generation of <em>human-centered</em> health technology.
+          Health technology should work for <em>every patient.</em>
         </h2>
       </div>
       <div class="mission-body">
         <p class="reveal delay-1">
-          <strong>We are a biomedical technology company</strong> founded on a simple conviction:
-          the future of healthcare depends on instruments and algorithms that work for
-          everyone, not just the populations they were originally tested on.
+          <strong>Vital Signals Systems is a biomedical technology company building sensors and AI software for every patient,</strong> across genders, ages, and communities. We design medical devices that capture the body's signals, and AI that interprets those signals with rigorous validation for the people it serves.
         </p>
         <p class="reveal delay-2">
-          Vital Signals Systems develops integrated <strong>hardware and software platforms</strong>
-          for capturing, interpreting, and acting on biomedical signals. Our work brings
-          together precision sensor engineering, machine learning, and rigorous communication
-          science to create tools that are clinically credible, technically excellent, and
-          built with marginalized populations in mind from day one.
+          Our work centers the patients whose voices and bodies have too often been left out of how health technology is built, including women across the lifespan, people of color, and communities historically underrepresented in clinical research.
         </p>
         <div class="mission-quote reveal delay-3">
-          We design <em>sensors and AI</em> for the people the health system was never built for, and prove they work for everyone else, too.
+          Better signals. Better care. <em>For every body.</em>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="build">
+<section id="focus">
   <div class="container">
-    <div class="section-eyebrow reveal">02 / What We Build</div>
-    <h2 class="section-title reveal delay-1">
-      An integrated platform of <em>hardware, software,</em> and applied research.
-    </h2>
+    <div class="section-eyebrow reveal">02 Focus Areas</div>
+    <h2 class="section-title reveal delay-1">Where our work matters <em>most.</em></h2>
     <p class="section-intro reveal delay-2">
-      Our portfolio spans three connected layers: the devices that measure
-      physiology, the AI that interprets it, and the research that ensures it
-      actually serves the people it's designed for.
-    </p>
-    <div class="pillars">
-      <div class="pillar reveal delay-1">
-        <span class="pillar-tag">Hardware</span>
-        <h3>Multimodal Biosignal Sensors</h3>
-        <p>
-          Precision instruments for capturing the body's electrical, physiological,
-          and movement signals. Engineered for clinical reliability and real-world durability.
-        </p>
-        <ul>
-          <li>EEG, ECG, and EMG signal acquisition</li>
-          <li>Wearable and ambient sensing modules</li>
-          <li>Integrated multimodal sensing platforms</li>
-          <li>Clinical-grade and research-grade form factors</li>
-        </ul>
-      </div>
-      <div class="pillar reveal delay-2">
-        <span class="pillar-tag teal">Software</span>
-        <h3>Health AI &amp; Analytics</h3>
-        <p>
-          AI software that turns raw biosignals and patient language into clinically
-          meaningful insight, validated for the populations it's deployed in.
-        </p>
-        <ul>
-          <li class="teal">Signal processing and digital biomarkers</li>
-          <li class="teal">Natural language analysis of patient communication</li>
-          <li class="teal">Decision-support dashboards for clinicians</li>
-          <li class="teal">Community-calibrated model validation</li>
-        </ul>
-      </div>
-      <div class="pillar reveal delay-3">
-        <span class="pillar-tag">Applied Research</span>
-        <h3>Funded Studies &amp; Partnerships</h3>
-        <p>
-          Sponsored research with universities, foundations, and industry partners on
-          women's health, reproductive health, and digital health equity.
-        </p>
-        <ul>
-          <li>SBIR / STTR and federal grant-funded R&amp;D</li>
-          <li>Foundation-funded health communication studies</li>
-          <li>University and clinical site collaborations</li>
-          <li>Validation studies for health AI tools</li>
-        </ul>
-      </div>
-      <div class="pillar reveal delay-4">
-        <span class="pillar-tag teal">Consulting</span>
-        <h3>Strategy &amp; Validation Services</h3>
-        <p>
-          We work with digital health teams, device makers, and labs to make sure
-          their AI products actually work for the populations they're meant to serve.
-        </p>
-        <ul>
-          <li class="teal">Health AI auditing &amp; bias evaluation</li>
-          <li class="teal">Community language calibration</li>
-          <li class="teal">Patient communication strategy</li>
-          <li class="teal">Mixed-methods study design</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="focus" class="alt">
-  <div class="container">
-    <div class="section-eyebrow reveal">03 / Focus Areas</div>
-    <h2 class="section-title reveal delay-1">
-      Where our work matters <em>most.</em>
-    </h2>
-    <p class="section-intro reveal delay-2">
-      We concentrate on health domains where the gap between what technology can do
-      and what people actually receive is widest.
+      We concentrate on health domains where the gap between what technology can do and what people actually receive is widest.
     </p>
     <div class="focus-grid">
       <div class="focus reveal delay-1">
         <div class="focus-num">F.01</div>
         <h4>Women's Health Across the Lifespan</h4>
         <p>
-          Fertility, reproductive health, perimenopause, menopause, and chronic conditions
-          that have been historically underrepresented in clinical research and product design.
+          Fertility, reproductive health, perimenopause, menopause, and chronic conditions that affect women throughout their lives, with attention to the experiences clinical research has historically overlooked.
         </p>
       </div>
       <div class="focus reveal delay-2">
         <div class="focus-num">F.02</div>
         <h4>Digital Health Equity</h4>
         <p>
-          Sensors and AI tools rigorously validated for Black, Hispanic, and other
-          underserved populations, not retrofitted to them after launch.
+          Sensors and AI tools designed and validated from the start to serve Black, Hispanic, and other communities medicine has too often missed, with rigorous testing across the populations they are built for.
         </p>
       </div>
       <div class="focus reveal delay-3">
         <div class="focus-num">F.03</div>
-        <h4>Communication-Integrated Care</h4>
+        <h4>Care That Listens</h4>
         <p>
-          Bridging physiological data and patient-facing communication so that what
-          devices measure actually translates into what patients understand and act on.
+          Connecting what our technology measures with how patients and clinicians understand and act on it, so the signal becomes care, not just data.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="team">
+<section id="team" class="warm">
   <div class="container">
-    <div class="section-eyebrow reveal">04 / Team</div>
+    <div class="section-eyebrow reveal">03 Team</div>
     <h2 class="section-title reveal delay-1">
-      A founding team that bridges <em>engineering</em> and <em>health communication.</em>
+      A founding team that bridges <em>engineering</em> and <em>patient care.</em>
     </h2>
     <p class="section-intro reveal delay-2">
-      Vital Signals Systems is built by founders who have spent their careers at the
-      intersection of biomedical signals, artificial intelligence, and the human
-      experience of health.
+      Vital Signals Systems is built by founders who have spent their careers at the intersection of biomedical signals, artificial intelligence, and the human experience of health.
     </p>
     <div class="team">
       <div class="person reveal delay-1">
-        <div class="person-avatar">RC</div>
+        <div class="person-photo">
+          <!-- Drop your headshot here later: save as rim.jpg in the repo, then uncomment: -->
+          <!-- <img src="rim.jpg" alt="Rim H. Chaif"/> -->
+          RC
+        </div>
         <div class="person-name">Rim H. Chaif, Ph.D.</div>
-        <div class="person-title">Co-Founder &amp; CEO</div>
+        <div class="person-title">Co-Founder, Health AI Research</div>
         <p class="person-bio">
-          Ph.D. in Journalism and Mass Communications from the University of Kansas,
-          with research at the intersection of computational health communication,
-          natural language processing, and social media analysis.
+          Dr. Rim Chaif holds a Ph.D. in Journalism and Mass Communications from the University of Kansas, with research at the intersection of health AI, natural language processing, and the experiences of patients navigating clinical systems. Her work examines how people communicate about their health online, how AI systems read or misread patient voices, and how health technology can be rigorously validated for the populations it serves.
         </p>
         <p class="person-bio">
-          Author of nine peer-reviewed publications on women's health, reproductive
-          health, and online community dynamics. Multilingual researcher (Arabic,
-          French, English, Italian) with a background in investigative and humanitarian journalism.
+          She is the author of nine peer-reviewed publications spanning women's health, reproductive health, and online community dynamics, and the developer of an iterative human-AI validation framework for classification tasks in sensitive health contexts. She brings to Vital Signals Systems a foundation in investigative and humanitarian journalism across North Africa and Europe, and works in Arabic, French, English, and Italian.
         </p>
+        <div class="person-links">
+          <a href="#" class="person-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="person-link" aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0.5 9.5 12 1l11.5 8.5-4.742 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          </a>
+          <a href="mailto:rim@vitalsignalssystems.com" class="person-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="person teal reveal delay-2">
-        <div class="person-avatar teal">AI</div>
+      <div class="person alt reveal delay-2">
+        <div class="person-photo">
+          <!-- Drop Ali's headshot here later: save as ali.jpg in the repo, then uncomment: -->
+          <!-- <img src="ali.jpg" alt="Ali K. Ibrahim"/> -->
+          AI
+        </div>
         <div class="person-name">Ali K. Ibrahim, Ph.D.</div>
-        <div class="person-title">Co-Founder &amp; CTO</div>
+        <div class="person-title">Co-Founder, Biomedical Engineering</div>
         <p class="person-bio">
-          Assistant Professor at Florida Atlantic University with deep expertise in
-          machine learning, signal processing, and applied artificial intelligence.
+          Dr. Ali Ibrahim is an electrical engineer and machine learning researcher at Florida Atlantic University, with a decade of published work in biomedical signal processing and deep learning across multiple body systems. His research spans epileptic seizure prediction from EEG, intracranial hemorrhage segmentation, diabetic retinopathy classification, breast cancer detection in medical imaging, and white blood cell identification for hematology, as well as applied AI for drug discovery and accessibility technologies.
         </p>
         <p class="person-bio">
-          Technical lead on Vital Signals Systems' sensor architecture and AI
-          modeling pipeline, with a research track record in waveform analysis and
-          biomedical applications of deep learning.
+          At Vital Signals Systems, he leads the design of sensor architectures and the deep learning systems that turn the body's signals into clinical insight, drawing on multimodal AI architectures that work in real-world, noisy environments where conventional methods struggle.
         </p>
+        <div class="person-links">
+          <a href="#" class="person-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://scholar.google.com/citations?user=QcMJ-6UAAAAJ&hl=en" class="person-link" aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0.5 9.5 12 1l11.5 8.5-4.742 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          </a>
+          <a href="mailto:ali@vitalsignalssystems.com" class="person-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="research" class="dark">
+  <div class="container">
+    <div class="section-eyebrow reveal">04 Research</div>
+    <h2 class="section-title reveal delay-1">
+      Peer-reviewed work and <em>active studies.</em>
+    </h2>
+    <p class="section-intro reveal delay-2">
+      Our work spans women's health and reproductive health communication, biomedical signal processing, medical imaging AI, and the rigorous validation of clinical AI for the patients it serves.
+    </p>
+
+    <div class="pubs-group reveal delay-1">
+      <div class="pubs-group-label">Women's Health &amp; Reproductive Health</div>
+      <div class="pubs-list">
+        <div class="pub">
+          <div class="pub-year">2026</div>
+          <div class="pub-content">
+            <div class="pub-title">When Open Access Is Not Equal Access: How Gender Shapes Framing, Support, and Community Responsiveness in Online Infertility Communities</div>
+            <div class="pub-meta"><span class="pub-venue">Doctoral Dissertation</span>, University of Kansas</div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2025</div>
+          <div class="pub-content">
+            <div class="pub-title">"More Like a Drug Cartel Than a Baby Plan": A Multimodal Analysis of Reproductive Narratives in Online Infertility Communities</div>
+            <div class="pub-meta"><span class="pub-venue">Health</span></div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2025</div>
+          <div class="pub-content">
+            <div class="pub-title">"Too Afraid of Them Messing Me Up": Computational Analysis of Women's Contraceptive Risk Negotiation in Online Health Communities</div>
+            <div class="pub-meta">Under review</div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2025</div>
+          <div class="pub-content">
+            <div class="pub-title">Between Likes and Lies: How Teenage Girls Navigate Online Health Information</div>
+            <div class="pub-meta"><span class="pub-venue">Frontiers in Communication</span> (with Seo et al.)</div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2024</div>
+          <div class="pub-content">
+            <div class="pub-title">Social Media Activism and Women's Health: Endometriosis as a Feminist Issue</div>
+            <div class="pub-meta"><span class="pub-venue">Digital Health</span> (with Seo et al.)</div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2024</div>
+          <div class="pub-content">
+            <div class="pub-title">"My Place Isn't in the Kitchen": Examining Feminist Facebook Framing of an Algerian Social Movement</div>
+            <div class="pub-meta"><span class="pub-venue">Social Media + Society</span> (with Finneman)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pubs-group reveal delay-2">
+      <div class="pubs-group-label">Biomedical AI &amp; Signal Processing</div>
+      <div class="pubs-list">
+        <div class="pub">
+          <div class="pub-year">2023</div>
+          <div class="pub-content">
+            <div class="pub-title">Epileptic Seizure Prediction Based on Multiresolution Convolutional Neural Networks</div>
+            <div class="pub-meta"><span class="pub-venue">Frontiers in Signal Processing</span></div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2021</div>
+          <div class="pub-content">
+            <div class="pub-title">Deep Learning for Drug Discovery: Identifying High Efficacy Drug Compounds Using a Cascade Transfer Learning Approach</div>
+            <div class="pub-meta"><span class="pub-venue">Applied Sciences</span></div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2020</div>
+          <div class="pub-content">
+            <div class="pub-title">Segmentation of Intracranial Hemorrhage Using Semi-Supervised Multi-Task Attention-Based U-Net</div>
+            <div class="pub-meta"><span class="pub-venue">Applied Sciences</span></div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2020</div>
+          <div class="pub-content">
+            <div class="pub-title">Diabetic Retinopathy Severity Level Classification Using Multimodel Convolutional Neural Networks</div>
+            <div class="pub-meta"><span class="pub-venue">IEEE EMBC</span></div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2019</div>
+          <div class="pub-content">
+            <div class="pub-title">Validation of miRNAs as Breast Cancer Biomarkers with a Machine Learning Approach</div>
+            <div class="pub-meta"><span class="pub-venue">Cancers</span></div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2018</div>
+          <div class="pub-content">
+            <div class="pub-title">Classification of White Blood Cells with PatternNet-Fused Ensemble of Convolutional Neural Networks</div>
+            <div class="pub-meta"><span class="pub-venue">IEEE ISSPIT</span></div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2018</div>
+          <div class="pub-content">
+            <div class="pub-title">A Machine Learning Approach for the Classification of Kidney Cancer Subtypes Using miRNA Genome Data</div>
+            <div class="pub-meta"><span class="pub-venue">Applied Sciences</span></div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2018</div>
+          <div class="pub-content">
+            <div class="pub-title">A Study on Automatic Detection of IDC Breast Cancer with Convolutional Neural Networks</div>
+            <div class="pub-meta"><span class="pub-venue">ICCSC</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pubs-group reveal delay-3">
+      <div class="pubs-group-label">Methods, AI &amp; Digital Health Communication</div>
+      <div class="pubs-list">
+        <div class="pub">
+          <div class="pub-year">2025</div>
+          <div class="pub-content">
+            <div class="pub-title">Branding Identity and Negotiating Femininity: A Machine Learning Analysis of North African Women Athletes' Self-Presentation on Instagram</div>
+            <div class="pub-meta">Under review (with Ibrahim)</div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2025</div>
+          <div class="pub-content">
+            <div class="pub-title">Consumers' Emotional Responses to AI-Generated Versus Human-Generated Content in Health Marketing</div>
+            <div class="pub-meta"><span class="pub-venue">International Journal of Human-Computer Interaction</span> (with Diwanji et al.)</div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2025</div>
+          <div class="pub-content">
+            <div class="pub-title">Pride, Not Prejudice: A Cross-Cultural Big Data Analysis of Consumer Reactions to Rainbow-Washing in Advertising</div>
+            <div class="pub-meta"><span class="pub-venue">International Journal of Advertising</span> (with Diwanji et al.)</div>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-year">2023</div>
+          <div class="pub-content">
+            <div class="pub-title">Comparative Analysis of Online Social Support in Health: Brazilian and U.S. Facebook Groups on Diabetes</div>
+            <div class="pub-meta"><span class="pub-venue">International Communication Research Journal</span> (with Da Silva et al.)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section id="contact">
   <div class="container">
     <div class="contact-card">
-      <div class="section-eyebrow reveal">05 / Contact</div>
+      <div class="section-eyebrow reveal">05 Contact</div>
       <h2 class="reveal delay-1">
         Let's build something that <em>actually works</em> for people.
       </h2>
-      <p class="reveal delay-2" style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.75); max-width: 56ch;">
-        We're actively seeking partners for funded research, clinical collaborations,
-        product validation work, and strategic engagements. If your work touches
-        biomedical sensing, health AI, or equitable digital health, we want to hear from you.
+      <p class="lede-dark reveal delay-2">
+        We are actively seeking partners for funded research, clinical collaborations, product validation work, and strategic engagements. If your work touches biomedical sensing, health AI, or equitable digital health, we want to hear from you.
       </p>
       <div class="contact-grid">
         <div class="contact-cell reveal delay-1">
@@ -827,7 +1084,7 @@
 <footer>
   <div class="container">
     <div><span class="brand-mini">Vital Signals Systems LLC</span> &nbsp;&middot;&nbsp; &copy; 2026</div>
-    <div>Biomedical Sensing &amp; Health AI</div>
+    <div>Sensors &middot; AI &middot; Equity</div>
     <div>Boca Raton &middot; Florida</div>
   </div>
 </footer>
@@ -841,12 +1098,18 @@
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
   els.forEach(el => io.observe(el));
-
   window.addEventListener('load', () => {
     document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('in'));
   });
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg && window.innerWidth > 920) {
+    window.addEventListener('scroll', () => {
+      const s = window.pageYOffset;
+      if (s < 800) heroBg.style.transform = `translateY(${s * 0.15}px)`;
+    }, { passive: true });
+  }
 </script>
 
 </body>
